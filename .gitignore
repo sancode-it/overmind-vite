@@ -1,0 +1,43 @@
+# Byte-compiled / optimized
+__pycache__
+*.py[co]
+
+# Distribution / packaging
+env
+build
+dist
+*.egg-info
+
+# Unit test / coverage reports
+htmlcov
+.tox
+.cache
+.pytest_cache
+.coverage
+nosetests.xml
+coverage.xml
+
+# Virtualenv
+/env/
+/venv/
+/.venv/
+
+# Sphinx documentation
+docs/_build/
+
+# Javascript
+node_modules
+*.log*
+.nyc_output/
+coverage/
+
+# Database
+*.db
+
+# IDEs and editors
+.idea
+.project
+.classpath
+*.launch
+.settings
+.vscode

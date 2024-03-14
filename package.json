@@ -1,0 +1,40 @@
+{
+  "name": "overmind-vite",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite serve src",
+    "build": "vite build src --outDir dist "
+  },
+  "dependencies": {
+    "overmind": "^28.0.4-1709665053032",
+    "overmind-react": "^29.0.6-1709665053033",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8"
+  },
+  "devDependencies": {
+    "@types/prettier": "2.7.3",
+    "@types/react": "18.2.65",
+    "@types/react-dom": "18.2.21",
+    "@types/styled-components": "^5.1.34",
+    "@vitejs/plugin-react": "^4.2.1",
+    "prettier": "3.2.5",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "semi": false,
+    "arrowParens": "always",
+    "overrides": [
+      {
+        "files": "*.md",
+        "options": {
+          "trailingComma": "none"
+        }
+      }
+    ]
+  }
+}
