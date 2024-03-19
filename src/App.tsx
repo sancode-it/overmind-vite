@@ -5,8 +5,6 @@ import { useActions, useAppState } from './overmind'
 import React from 'react'
 import styled from 'styled-components'
 
-// Create a <Title> react component that renders an <h1> which is
-// centered, palevioletred and sized at 1.5em
 const Title = styled.p`
   font-size: 1.5em;
   text-align: center;
@@ -34,17 +32,18 @@ export function App() {
             onChange={(e) => actions.changeMessageContent1(e.target.value)}
           />
         </label>
-        <p>Message 1: {message1.content || 'Please type!'}</p>
+        <p>Message 1: {value1 || 'Please type!'}</p>
         <label>
-          <span>Message using base state and matches:  </span>
+          <span>Message using base state and matches: </span>
           <input
             value={value2}
             onChange={(e) => actions.changeMessageContent2(e.target.value)}
           />
         </label>
-        <p>Message 2: {message2.content || 'Please type!'}</p>
+        {/* This doesn't work with overmind@next. When printing `message2.content` it works. */}
+        <p>Message 2: {value2 || 'Please type!'}</p>
         <label>
-          <span>Message using machine state and matches:  </span>
+          <span>Message using machine state and matches: </span>
           <input
             value={value3}
             onChange={(e) => actions.changeMessageContent3(e.target.value)}
