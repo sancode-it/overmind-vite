@@ -1,9 +1,8 @@
 import { type Statemachine, statemachine } from 'overmind'
 
-type States =
-  | {
-      current: 'INITIAL'
-    }
+type States = {
+  current: 'INITIAL'
+}
 
 type BaseState = {
   message1: MessageMachine
@@ -11,10 +10,9 @@ type BaseState = {
   message3: Message3Machine
 }
 
-type Events =
-  | {
-      type: 'STARTED'
-    }
+type Events = {
+  type: 'STARTED'
+}
 
 export type MessagesMachine = Statemachine<States, Events, BaseState>
 
@@ -41,9 +39,17 @@ type EventsMessage = {
   data: string
 }
 
-export type MessageMachine = Statemachine<StatesMessage, EventsMessage, BaseStateMessage>
+export type MessageMachine = Statemachine<
+  StatesMessage,
+  EventsMessage,
+  BaseStateMessage
+>
 
-export const message1 = statemachine<StatesMessage, EventsMessage, BaseStateMessage>({
+export const message1 = statemachine<
+  StatesMessage,
+  EventsMessage,
+  BaseStateMessage
+>({
   MESSAGE_INITIAL: {
     MESSAGE_TYPED: (msg, state) => {
       state.content = msg
@@ -57,7 +63,11 @@ export const message1 = statemachine<StatesMessage, EventsMessage, BaseStateMess
   },
 })
 
-export const message2 = statemachine<StatesMessage, EventsMessage, BaseStateMessage>({
+export const message2 = statemachine<
+  StatesMessage,
+  EventsMessage,
+  BaseStateMessage
+>({
   MESSAGE_INITIAL: {
     MESSAGE_TYPED: (msg, state) => {
       state.content = msg
@@ -87,12 +97,14 @@ export const message3 = statemachine<StatesMessage3, EventsMessage>({
     MESSAGE_TYPED: (msg) => ({
       current: 'CREATE_MESSAGE_IN_PROGRESS',
       content: msg,
+      iDontExist: 'I should not exist',
     }),
   },
   CREATE_MESSAGE_IN_PROGRESS: {
     MESSAGE_TYPED: (msg) => ({
       current: 'CREATE_MESSAGE_IN_PROGRESS',
       content: msg,
+      iDontExist: 'I should not exist',
     }),
   },
 })
@@ -100,14 +112,8 @@ export const message3 = statemachine<StatesMessage3, EventsMessage>({
 export const state = messages.create(
   { current: 'INITIAL' },
   {
-    message1: message1.create(
-      { current: 'MESSAGE_INITIAL' },
-      { content: '' }
-    ),
-    message2: message2.create(
-      { current: 'MESSAGE_INITIAL' },
-      { content: '' }
-    ),
+    message1: message1.create({ current: 'MESSAGE_INITIAL' }, { content: '' }),
+    message2: message2.create({ current: 'MESSAGE_INITIAL' }, { content: '' }),
     message3: message3.create({ current: 'MESSAGE_INITIAL' }),
   }
 )
