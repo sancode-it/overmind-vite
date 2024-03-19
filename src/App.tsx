@@ -40,7 +40,8 @@ export function App() {
             onChange={(e) => actions.changeMessageContent2(e.target.value)}
           />
         </label>
-        {/* This doesn't work with overmind@next. When printing `message2.content` it works. */}
+        {/* This doesn't work with overmind@next. When printing
+            `message2.content` directly istead of `value2` it works. */}
         <p>Message 2: {value2 || 'Please type!'}</p>
         <label>
           <span>Message using machine state and matches: </span>
